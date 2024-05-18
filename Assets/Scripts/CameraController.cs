@@ -10,8 +10,19 @@ public class CameraController : MonoBehaviour
     public float edgeBuffer = 2f; // Буфер для определения края экрана
     private Vector3 velocity = Vector3.zero; // Вектор скорости
 
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     private void LateUpdate()
     {
+        Vector3 temp = transform.position;
+        temp.x = target.position.x;
+        temp.y = target.position.y;
+        transform.position = temp;
+
+        /*
         // Если игрок не задан, выходим из функции
         if (target == null)
             return;
@@ -33,5 +44,6 @@ public class CameraController : MonoBehaviour
             Vector3 targetPosition = new Vector3(targetX, transform.position.y, transform.position.z);
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
+        */
     }
 }

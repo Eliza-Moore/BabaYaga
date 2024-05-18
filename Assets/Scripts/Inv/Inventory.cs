@@ -14,8 +14,18 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        inventoryOn = false;
+        inventoryOn = true;
     }
+
+    public void Clear()
+    {
+        for (int i = 0; i < slot.Length; i++)
+        {
+            isFull[i] = false;
+            Destroy(slot[i].transform.GetChild(0).gameObject);
+        }
+    }
+
 
     public void Chest()
     {

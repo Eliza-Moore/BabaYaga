@@ -123,22 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KickBoard_sprite
+      name: KickBoard_0
       rect:
         serializedVersion: 2
-        x: 215
+        x: 194
         y: 0
-        width: 665
-        height: 622
+        width: 660
+        height: 664
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9d7f76762b030a4ab83a3a85a21d89f
-      internalID: 987076080
+      spriteID: 21651af001cded0488e0a932f1eb6829
+      internalID: 651757037
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      KickBoard_sprite: 987076080
+      KickBoard_0: 651757037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

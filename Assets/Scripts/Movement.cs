@@ -9,11 +9,13 @@ public class Movement : MonoBehaviour
     private bool isMoving = false; // Флаг, указывающий, двигается ли персонаж
     public Animator animator; // Ссылка на компонент Animator
     public Collider2D floorCollider; // Коллайдер объекта floor
+    public VectorValue posOnScene;
 
     public float speed = 5f; // Скорость движения персонажа
 
     void Start()
     {
+        transform.position = posOnScene.initialValue;
         // Получаем коллайдер объекта floor
         floorCollider = GameObject.FindGameObjectWithTag("Floor").GetComponent<Collider2D>();
         // Получаем компонент Animator

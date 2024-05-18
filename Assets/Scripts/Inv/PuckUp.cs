@@ -9,10 +9,12 @@ public class PuckUp : MonoBehaviour
     public GameObject slotButtonPrefab;
     public float pickupRadius = 2f;
     private bool isPlayerInRange = false;
+    private ItemData item;
 
     private void Start()
     {
         Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        item = GetComponent<ItemData>();
         if (Inventory == null)
         {
             Debug.LogError("Inventory component not found on the Player!");
@@ -69,15 +71,19 @@ public class PuckUp : MonoBehaviour
 
         Debug.Log("Предмет подобран");
 
-        for (int i = 0; i < Inventory.slot.Length; i++)
+        if (item.requiredItemID == -1) // нет условий, чтобы подобрать этот предмет
         {
-            if (!Inventory.isFull[i])
+            for (int i = 0; i < Inventory.slot.Length; i++)
             {
-                Inventory.isFull[i] = true;
-                Destroy(gameObject); // Уничтожаем объект на сцене до создания кнопки слота в инвентаре
-                GameObject slotButton = Instantiate(slotButtonPrefab, Inventory.slot[i].transform);
-                slotButton.GetComponent<Button>().onClick.AddListener(() => UseItem(slotButton));
-                break;
+                if (!Inventory.isFull[i])
+                {
+                    Inventory.isFull[i] = true;
+                    Destroy(gameObject); // Уничтожаем объект на сцене до создания кнопки слота в инвентаре
+                    GameObject slotButton = Instantiate(slotButtonPrefab, Inventory.slot[i].transform);
+                    slotButton.GetComponent<Button>().onClick.AddListener(() => UseItem(slotButton));
+                    //GameManager.collectionItems.Add();
+                    break;
+                }
             }
         }
     }

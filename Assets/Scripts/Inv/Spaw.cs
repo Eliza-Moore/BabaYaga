@@ -16,7 +16,7 @@ public class Spaw : MonoBehaviour
         //selectionScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Selection>();
         //inventoryScript = selectionScript.inventory;
 
-        if (selectionScript == null || inventoryScript == null)
+        if (inventoryScript == null)
         {
             Debug.LogError("Selection or Inventory component not found on the Player!");
         }
@@ -56,7 +56,7 @@ public class Spaw : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            else 
+            else
             {
                 Debug.Log("Сорян, имя не совпало!");
             }
